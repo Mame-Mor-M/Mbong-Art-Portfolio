@@ -1,10 +1,10 @@
 .Home {
-  background-color: rgb(28, 27, 27);
+  background-color: #8C2504;
 }
 
 .Section-Header {
   text-align: center;
-  color: rgb(255, 255, 255);
+  color: #ffff8c;
   font-size: calc(10px + 2vmin);
   margin-bottom: 2%;
   margin-top: 2%;
@@ -84,6 +84,8 @@
   font-size: 1rem;
   font-weight: bold;
   margin-right: rem;
+  color: #ffff8c;
+  
 }
 
 .Navbar-Left {
@@ -92,17 +94,21 @@
 
 .Navbar-Right {
   margin-right: 2rem;
+  color: #ffff8c;
 }
 
 .Navbar-Center h1 {
   font-size: 1.5rem;
   font-weight: bold;
+  color: #ffff8c;
+  text-align: center;
 }
 .Navbar-Center p {
   margin-top: -1rem;
   font-size: 1rem;
   font-weight:500;
   text-align: center;
+  color: #ffff8c;
 }
 
 .Navbar-Right a,
@@ -114,26 +120,33 @@
 
 .Animations {
   text-align: center;
-  background-color: rgb(28, 27, 27);
+  background-color: #8C2504;
   min-height: 100vh;
 }
 
 .Illustrations {
   text-align: center;
-  background-color: rgb(28, 27, 27);
+  background-color: #8C2504;
   min-height: 600vh;
-  max-width: 100%
+  max-width: 100%;
+  padding: 1%;
 }
 
 .Illustrations-Grid {
-  column-gap: 0rem;
   column-width: 250px;
+  column-gap: 2rem;
+}
+.Portrait-Section {
+  margin-top: -20%;
 }
 
 .Illustrations-Item {
-  break-inside: avoid;
+  break-inside: auto;
   box-sizing: border-box;
 
+}
+.Illustrations img {
+  cursor: pointer;
 }
 
 .Illustrations-Item img {
@@ -163,6 +176,6 @@
 
 @media (min-width: 768px) {
   .Illustrations-Grid {
-    column-count: 2
+    column-count: 6
   }
 }

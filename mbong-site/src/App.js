@@ -1,15 +1,26 @@
 import { FaInstagram, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import {useState, useEffect} from 'react';
+import Masonry, {ResponsiveMasonry} from 'react-responsive-masonry';
 import './Home.css';
 
 function App() {
-  const images = [
-    {id: 1, content:'/Illustrations/Picture1.png', height:800, wide: false, vOffset: 50, hOffset: 50},
-    { id: 2, content: '/Illustrations/Picture2.png', height: 800, wide: false, vOffset: 100, hOffset: -50 },
-    { id: 5, content: '/Illustrations/Picture5.png', height: 750, wide: true, vOffset: 150, hOffset: 0 },
-    { id: 3, content: '/Illustrations/Picture3.png', height: 800, wide: false, vOffset: 200, hOffset: 50 },
-    { id: 4, content: '/Illustrations/Picture4.png', height: 800, wide: false, vOffset: 230, hOffset: -50 },
-    { id: 6, content: '/Illustrations/Picture6.png', height: 0, wide: false, vOffset: 230, hOffset: -400 },
+  const character_designs = [
+    { id: 8, content: '/Illustrations/AmariSheet.png', height: 0, wide: false, vOffset: 0, hOffset: 25, width: 600 },
+    { id: 9, content: '/Illustrations/AmariSheet2.png', height: 0, wide: false, vOffset: 0, hOffset: 145, width: 400 },
+    { id: 5, content: '/Illustrations/Trio.png', height: 750, wide: false, vOffset: 0, hOffset: 65, width: 400 },
+    { id: 11, content: '/Illustrations/Hunter1.png', height: 800, wide: false, vOffset: 0, hOffset: 25, width: 600 },
+    { id: 11, content: '/Illustrations/HunterSheet.png', height: 800, wide: false, vOffset: 0, hOffset: 145, width: 400 },
+    { id: 2, content: '/Illustrations/Hunter2.png', height: 800, wide: false, vOffset: 0, hOffset: 65, width: 400 },
+    { id: 7, content: '/Illustrations/FightLady.png', height: 0, wide: false, vOffset: -700, hOffset: 1065, width: 400 },
+
+  ]
+  const portraits = [
+    { id: 11, content: '/Illustrations/Picture2.png', height: 800, wide: false, vOffset: 0, hOffset: 25, width: 500 },
+    { id: 1, content: '/Illustrations/Picture1.png', height: 800, wide: false, vOffset: 0, hOffset: 42, width: 600 },
+    { id: 3, content: '/Illustrations/Picture3.png', height: 800, wide: false, vOffset: 0, hOffset: 165, width: 300 },
+    { id: 4, content: '/Illustrations/Picture4.png', height: 800, wide: false, vOffset: 0, hOffset: 126, width: 400 },
+    { id: 6, content: '/Illustrations/Picture6.png', height: 0, wide: false, vOffset: -370, hOffset: 665, width: 300 },
+    
   ]
 
   const animations = [
@@ -29,7 +40,7 @@ function App() {
       <div className="Animations">
         <header className="Hero-header">
           <p>
-            Eat my shorts dummy aaaaaa
+            EWAODAWOIDHOADHAWODA
           </p>
         </header>
       </div>
@@ -38,25 +49,30 @@ function App() {
         <p className='Section-Desc'>Where I put my illustrations (make read better)</p>
       </header>
       <div className="Illustrations">
-        <MasonryLayout items={images}/>
+        <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
+        <Masonry columnsCount={3} gutter='15px'>
+          {character_designs.map((image, i) => (
+            <div>
+            <img key={i} src={image.content} style={{width: `${image.width}px`, position: `relative`, left: `${image.hOffset}px`, top: `${image.vOffset}px`}}/>
+            </div>
+          ))}
+        </Masonry>
+        </ResponsiveMasonry>
+        <ResponsiveMasonry className="Portrait-Section" columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
+          <Masonry columnsCount={3} gutter='15px'>
+            {portraits.map((image, i) => (
+              <div>
+                <img key={i} src={image.content} style={{ width: `${image.width}px`, position: `relative`, left: `${image.hOffset}px`, top: `${image.vOffset}px` }} />
+              </div>
+            ))}
+          </Masonry>
+        </ResponsiveMasonry>
       </div>
       <footer id="Contact">
         <h2>Contact Me</h2>
       </footer>
     </div>
   );
-}
-
-const MasonryLayout = ({ items }) => {
-  return (
-    <div className='Illustrations-Grid'>
-      {items.map((item) => (
-        <div key={item.id} className={`Illustrations-Item ${item.wide ? 'wide' : ''}`} style={{height: `${item.height}px`, top:` ${item.vOffset}px`, left:`${item.hOffset}px`, position: 'relative'}}>
-          <img src={item.content} />
-      </div>
-  ))}
-    </div>
-  )
 }
 
 const Navbar = () => {
@@ -100,14 +116,14 @@ const Navbar = () => {
 
       <div className="Navbar-Center">
         <h1>Mbong Mbong</h1>
-        <p>Animation & Art????</p>
+        <p>Animator & Digital Artist</p>
       </div>
 
       <div className="Navbar-Right">
         <a href="https://www.instagram.com/mbong_mbong/" target="_blank" rel="noopener noreferrer">
           <FaInstagram />
         </a>
-        <a href="https://www.linkedin.com/in/mbong-mbong-bb1190374/?originalSubdomain=ca" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/mbong-mbong-929a0b35a/" target="_blank" rel="noopener noreferrer">
           <FaLinkedin />
         </a>
         <button onClick={() => scrollToSection('Contact')}>
