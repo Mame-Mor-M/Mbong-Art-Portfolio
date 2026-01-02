@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Mbong-Art-Portfolio/static/css/main.45c1672e.css",
-    "main.js": "/Mbong-Art-Portfolio/static/js/main.b153f6c6.js",
+    "main.js": "/Mbong-Art-Portfolio/static/js/main.457b4db4.js",
     "static/js/453.e29620e7.chunk.js": "/Mbong-Art-Portfolio/static/js/453.e29620e7.chunk.js",
     "index.html": "/Mbong-Art-Portfolio/index.html",
     "main.45c1672e.css.map": "/Mbong-Art-Portfolio/static/css/main.45c1672e.css.map",
-    "main.b153f6c6.js.map": "/Mbong-Art-Portfolio/static/js/main.b153f6c6.js.map",
+    "main.457b4db4.js.map": "/Mbong-Art-Portfolio/static/js/main.457b4db4.js.map",
     "453.e29620e7.chunk.js.map": "/Mbong-Art-Portfolio/static/js/453.e29620e7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.45c1672e.css",
-    "static/js/main.b153f6c6.js"
+    "static/js/main.457b4db4.js"
   ]
 }
