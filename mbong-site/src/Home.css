@@ -52,7 +52,7 @@
   padding: 1rem 1rem;
   background: #8C2504;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+  z-index: 10000;
   transition: opacity 1s ease, transform 1s ease;
   opacity: 1;
   transform: translateY(0);
@@ -95,7 +95,7 @@
 }
 
 .Navbar-Left {
-  margin-right: -7.5rem;
+  margin-right: -3rem;
 }
 
 .Navbar-Right {
@@ -128,11 +128,35 @@
   text-align: center;
   background-color: #8C2504;
   min-height: 100vh;
+  padding: 1%;
 }
 
 .Animations video {
-  width: 95%;
+  width: 99%;
 }
+.Animations-Clip{
+  transform: scale(1);
+  transition: transform 0.4s ease-in-out;
+}
+
+/*Make cursor a pointer after when click behavior exists (not there yeT)*/
+.Animations-Clip:hover{
+  transform: scale(1.05);
+}
+
+.Animation-Volume {
+  width: 2rem;
+  scale: 1.2;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  position: absolute;
+  z-index: 1000;
+  align-self: flex-end;
+  margin-bottom: 0.2rem;
+}
+
+.Animation-Volume
 
 .Illustrations {
   text-align: center;
@@ -151,15 +175,18 @@
   margin-top: -20%;
 }
 
+.Sheet-Section {
+  margin-bottom: 1%;
+}
+
 .Illustrations-Item {
   break-inside: auto;
   box-sizing: border-box;
 
 }
 .Illustrations img {
-  cursor: pointer;
   transform: scale(1);
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .Illustrations-Item img {
@@ -170,7 +197,7 @@
 }
 
 .Illustrations img:hover {
-  transform:scale(1.2);
+  transform:scale(1.07);
   z-index: 1000;
 }
 
@@ -186,6 +213,94 @@
   cursor: pointer;
 }
 
+.Contact{
+  background-color: #8C2504;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  justify-self: center;
+}
+
+.contact-section {
+  min-height: 100vh;
+  background-color: #8C2504;
+  /* tan background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  padding: 2rem;
+  width:280%;
+}
+
+.contact-card {
+  background-color: #8C2504;
+  border-radius: 10px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border: solid;
+}
+
+.contact-card h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ffff8c;
+}
+
+.contact-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-card label {
+  font-weight: 700;
+  color: #ffff8c;
+}
+
+.contact-card input,
+.contact-card textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #bdbdbd;
+  background-color: #f7f2e7;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.contact-card textarea {
+  resize: none;
+}
+
+.contact-card input:focus,
+.contact-card textarea:focus {
+  border-color: #000;
+}
+
+.contact-card button {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 12px;
+  border: none;
+  background-color: #ffff8c;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  background-color: #d5d537;
+  color: white;
+}
 @media (min-width: 576px) {
   .Illustrations-Grid {
     column-count: 1

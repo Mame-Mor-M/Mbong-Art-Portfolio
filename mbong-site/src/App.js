@@ -1,31 +1,53 @@
-import { FaInstagram, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import {useState, useEffect} from 'react';
+import { FaInstagram, FaLinkedin, FaEnvelope, FaVolumeMute, FaVolumeUp} from 'react-icons/fa';
+import { useState, useEffect, useRef } from 'react';
 import Masonry, {ResponsiveMasonry} from 'react-responsive-masonry';
+import emailjs from "@emailjs/browser";
 import './Home.css';
 
 function App() {
   const character_designs = [
-    { id: 8, content: '/Illustrations/AmariSheet.png', height: 0, wide: false, vOffset: 0, hOffset: 25, width: 600 },
-    { id: 9, content: '/Illustrations/AmariSheet2.png', height: 0, wide: false, vOffset: 0, hOffset: 145, width: 400 },
-    { id: 5, content: '/Illustrations/Trio.png', height: 750, wide: false, vOffset: 0, hOffset: 65, width: 400 },
-    { id: 11, content: '/Illustrations/Hunter1.png', height: 800, wide: false, vOffset: 0, hOffset: 25, width: 600 },
-    { id: 11, content: '/Illustrations/HunterSheet.png', height: 800, wide: false, vOffset: 0, hOffset: 145, width: 400 },
-    { id: 2, content: '/Illustrations/Hunter2.png', height: 800, wide: false, vOffset: 0, hOffset: 65, width: 400 },
-    { id: 7, content: '/Illustrations/FightLady.png', height: 0, wide: false, vOffset: -700, hOffset: 1065, width: 400 },
+    {content: '/Illustrations/AmariSheet.png', height: 0, wide: false, vOffset: 0, hOffset: 25, width: 600 },
+    {content: '/Illustrations/AmariSheet2.png', height: 0, wide: false, vOffset: 0, hOffset: 145, width: 400 },
+    {content: '/Illustrations/Trio.png', height: 750, wide: false, vOffset: 0, hOffset: 65, width: 400 },
+    {content: '/Illustrations/Hunter1.png', height: 800, wide: false, vOffset: 0, hOffset: 25, width: 600 },
+    {content: '/Illustrations/HunterSheet.png', height: 800, wide: false, vOffset: 0, hOffset: 145, width: 400 },
+    {content: '/Illustrations/Hunter2.png', height: 800, wide: false, vOffset: 0, hOffset: 65, width: 400 },
+    {content: '/Illustrations/FightLady.png', height: 0, wide: false, vOffset: -700, hOffset: 1065, width: 400 },
 
   ]
   const portraits = [
-    { id: 11, content: '/Illustrations/Picture2.png', height: 800, wide: false, vOffset: 0, hOffset: 25, width: 500 },
-    { id: 1, content: '/Illustrations/Picture1.png', height: 800, wide: false, vOffset: 0, hOffset: 42, width: 600 },
-    { id: 3, content: '/Illustrations/Picture3.png', height: 800, wide: false, vOffset: 0, hOffset: 165, width: 300 },
-    { id: 4, content: '/Illustrations/Picture4.png', height: 800, wide: false, vOffset: 0, hOffset: 126, width: 400 },
-    { id: 6, content: '/Illustrations/Picture6.png', height: 0, wide: false, vOffset: -370, hOffset: 665, width: 300 },
+    {content: '/Illustrations/Picture2.png', height: 800, wide: false, vOffset: 0, hOffset: 25, width: 500 },
+    {content: '/Illustrations/Picture1.png', height: 800, wide: false, vOffset: 0, hOffset: 42, width: 600 },
+    {content: '/Illustrations/Picture3.png', height: 800, wide: false, vOffset: 0, hOffset: 165, width: 300 },
+    {content: '/Illustrations/Picture4.png', height: 800, wide: false, vOffset: 0, hOffset: 126, width: 400 },
+    {content: '/Illustrations/Picture6.png', height: 0, wide: false, vOffset: -370, hOffset: 665, width: 300 },
     
   ]
 
-  const animations = [
-    {id: 1, content: '/Animations/'}
+  const animation_clips = [
+    { id: 0, content: '/Animations/HallwayRun.mp4', audio: false}, 
+    { id: 1, content: '/Animations/RunawayShot.mp4', audio: false }, 
+    { id: 2, content: '/Animations/Runaway2.mp4', audio: false },
+    { id: 2, content: '/Animations/OragamiLady.mp4', audio: true },
+    { id: 3, content: '/Animations/Squabble.mp4', audio: false },
+    { id: 4, content: '/Animations/JumpOver.mp4', audio: false },
+    { id: 5, content: '/Animations/Flip.mp4', audio: false },
+    { id: 7, content: '/Animations/RunningMan.mp4', audio: false },
+    { id: 6, content: '/Animations/BackpackLady.mp4', audio: false },
+    { id: 8, content: '/Animations/Yourmom.mp4', audio: true },
+    { id: 9, content: '/Animations/PunchingBagCut.mp4', audio: false },
+    { id: 10, content: '/Animations/Quoi.mp4', audio: false },
   ]
+  const [mutedVideos, setMutedVideos] = useState(() =>
+    Object.fromEntries(animation_clips.map(v => [v.id, true]))
+  );
+
+  const toggleMute = (id) => {
+    setMutedVideos(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
   
   return (
     <div className="Home">
@@ -38,14 +60,24 @@ function App() {
         <p className='Section-Desc'>Where I put my animations (make read better)</p>
       </header>
       <div className="Animations">
-          <video controls={true} src={'/Animations/Demo_Reel.mp4'}muted></video>
+        <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 4}}>
+          <Masonry  columnsCount={4} gutter='15px'>
+            {animation_clips.map((video, i) => (
+              <div className="Animations-Clip" >
+                {video.audio ? <a className="Animation-Volume" onClick={() => toggleMute(video.id)}>{ mutedVideos[video.id]  ? <FaVolumeMute /> : <FaVolumeUp /> }</a> : <a></a>} {/* video.muted doesn't toggle a re-render, need to use state change for this*/}
+                <video key={i} src={video.content}  autoPlay muted={mutedVideos[video.id]} loop style={{width: `97%`}}></video>
+              </div>
+            ))}
+          </Masonry>
+        </ResponsiveMasonry>
+          <video controls={true} src={'/Animations/Demo_Reel.mp4'}></video>
       </div>
       <header className="Section-Header" id="Illustrations">
         Illustrations
         <p className='Section-Desc'>Where I put my illustrations (make read better)</p>
       </header>
       <div className="Illustrations">
-        <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
+        <ResponsiveMasonry className="Sheet-Section" columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
         <Masonry columnsCount={3} gutter='15px'>
           {character_designs.map((image, i) => (
             <div>
@@ -64,9 +96,10 @@ function App() {
           </Masonry>
         </ResponsiveMasonry>
       </div>
-      <footer id="Contact">
-        <h2>Contact Me</h2>
-      </footer>
+      <div id="Contact" className="Contact">
+        <Contact/>
+      </div>
+
     </div>
   );
 }
@@ -105,7 +138,7 @@ const Navbar = () => {
   return (
     <nav className={`Navbar ${visible ? 'visible' : 'hidden'}`}>
       <div className="Navbar-Left">
-        <button onClick={() => scrollToSection('About')}>About Me</button>
+        {/*<button onClick={() => scrollToSection('About')}>About Me</button>*/}
         <button onClick={() => scrollToSection('Illustrations')}>Illustrations</button>
         <button onClick={() => scrollToSection('Animations')}>Animations</button>
       </div>
@@ -127,6 +160,54 @@ const Navbar = () => {
         </button>
       </div>
     </nav>
+  );
+};
+
+const Contact = () => {
+  const form = useRef();
+  const [sendMessage, setMessage] = useState("Send Message");
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setMessage("Sent")
+    emailjs.sendForm(
+      "service_uwh8xsc",
+      "template_x6qnb18",
+      form.current,
+      "Z80bLHF2ujQrFBCXq"
+    ).then(
+      () => {
+        
+        setTimeout(() => {
+          setMessage("Send Message");
+        }, 1000)
+        form.current.reset();
+      },
+      () => {
+        alert("Something went wrong.");
+      }
+    );
+  };
+
+  return (
+    <section id="Contact" className="contact-section">
+      <div className="contact-card">
+        <h1>Contact Me</h1>
+
+        <form ref={form} onSubmit={sendEmail}>
+          <label>Name*</label>
+          <input type="text" name="name" required />
+
+          <label>Email*</label>
+          <input type="email" name="email" required />
+
+          <label>Message*</label>
+          <textarea name="message" rows="6" required />
+
+          <button type="submit">{sendMessage}</button>
+        </form>
+      </div>
+    </section>
   );
 };
   export default App;
