@@ -57,7 +57,7 @@ function App() {
       </div>
       <header className="Section-Header" id="Animations">
         Animation Gallery
-        <p className='Section-Desc'>Where I put my animations (make read better)</p>
+        <p className='Section-Desc'></p>
       </header>
       <div className="Animations">
         <ResponsiveMasonry columnsCountBreakPoints={{350: 1, 750: 2, 900: 4}}>
@@ -70,11 +70,14 @@ function App() {
             ))}
           </Masonry>
         </ResponsiveMasonry>
+        <header className="Section-Header" id="Animations">
+          Demo Reel
+        </header>
           <video controls={true} src={'/Animations/Demo_Reel.mp4'}></video>
       </div>
       <header className="Section-Header" id="Illustrations">
         Illustrations
-        <p className='Section-Desc'>Where I put my illustrations (make read better)</p>
+        <p className='Section-Desc'>Character sheets & portraits</p>
       </header>
       <div className="Illustrations">
         <ResponsiveMasonry className="Sheet-Section" columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
