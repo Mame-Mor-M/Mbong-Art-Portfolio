@@ -56,7 +56,7 @@ const MasonryLayout = ({ items }) => {
 }
 
 const Navbar = () => {
-  const [visible, setVisible] = useState(false); // initially hidden
+  const [visible, setVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const scrollToSection = (id) => {
@@ -67,7 +67,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 9000);
+    const timer = setTimeout(() => setVisible(true), 9000); // Play around with time here, idk if good yet
     return () => clearTimeout(timer);
   }, []);
 
