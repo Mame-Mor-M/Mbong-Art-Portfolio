@@ -6,37 +6,37 @@ import './Home.css';
 
 function App() {
   const character_designs = [
-    { content: './Mbong-Art-Portfolio/Illustrations/AmariSheet.png', height: 0, wide: false, vOffset: 0, hOffset: 25, width: 600 },
-    { content: './Mbong-Art-Portfolio/Illustrations/AmariSheet2.png', height: 0, wide: false, vOffset: 0, hOffset: 145, width: 400 },
-    { content: './Mbong-Art-Portfolio/Illustrations/Trio.png', height: 750, wide: false, vOffset: 0, hOffset: 65, width: 400 },
-    { content: './Mbong-Art-Portfolio/Illustrations/Hunter1.png', height: 800, wide: false, vOffset: 0, hOffset: 25, width: 600 },
-    { content: './Mbong-Art-Portfolio/Illustrations/HunterSheet.png', height: 800, wide: false, vOffset: 0, hOffset: 145, width: 400 },
-    { content: './Mbong-Art-Portfolio/Illustrations/Hunter2.png', height: 800, wide: false, vOffset: 0, hOffset: 65, width: 400 },
-    { content: './Mbong-Art-Portfolio/Illustrations/FightLady.png', height: 0, wide: false, vOffset: -700, hOffset: 1065, width: 400 },
+    { content: './Illustrations/AmariSheet.png', height: 0, wide: false, vOffset: 0, hOffset: 25, width: 600 },
+    { content: './Illustrations/AmariSheet2.png', height: 0, wide: false, vOffset: 0, hOffset: 145, width: 400 },
+    { content: './Illustrations/Trio.png', height: 750, wide: false, vOffset: 0, hOffset: 65, width: 400 },
+    { content: './Illustrations/Hunter1.png', height: 800, wide: false, vOffset: 0, hOffset: 25, width: 600 },
+    { content: './Illustrations/HunterSheet.png', height: 800, wide: false, vOffset: 0, hOffset: 145, width: 400 },
+    { content: './Illustrations/Hunter2.png', height: 800, wide: false, vOffset: 0, hOffset: 65, width: 400 },
+    { content: './Illustrations/FightLady.png', height: 0, wide: false, vOffset: -700, hOffset: 1065, width: 400 },
 
   ]
   const portraits = [
-    { content: './Mbong-Art-Portfolio/Illustrations/Picture2.png', height: 800, wide: false, vOffset: 0, hOffset: 25, width: 500 },
-    { content: './Mbong-Art-Portfolio/Illustrations/Picture1.png', height: 800, wide: false, vOffset: 0, hOffset: 42, width: 600 },
-    { content: './Mbong-Art-Portfolio/Illustrations/Picture3.png', height: 800, wide: false, vOffset: 0, hOffset: 165, width: 300 },
-    { content: './Mbong-Art-Portfolio/Illustrations/Picture4.png', height: 800, wide: false, vOffset: 0, hOffset: 126, width: 400 },
-    { content: './Mbong-Art-Portfolio/Illustrations/Picture6.png', height: 0, wide: false, vOffset: -370, hOffset: 665, width: 300 },
+    { content: './Illustrations/Picture2.png', height: 800, wide: false, vOffset: 0, hOffset: 25, width: 500 },
+    { content: './Illustrations/Picture1.png', height: 800, wide: false, vOffset: 0, hOffset: 42, width: 600 },
+    { content: './Illustrations/Picture3.png', height: 800, wide: false, vOffset: 0, hOffset: 165, width: 300 },
+    { content: './Illustrations/Picture4.png', height: 800, wide: false, vOffset: 0, hOffset: 126, width: 400 },
+    { content: './Illustrations/Picture6.png', height: 0, wide: false, vOffset: -370, hOffset: 665, width: 300 },
     
   ]
 
   const animation_clips = [
-    { id: 0, content: './Mbong-Art-Portfolio/Animations/HallwayRun.mp4', audio: false}, 
-    { id: 1, content: './Mbong-Art-Portfolio/Animations/RunawayShot.mp4', audio: false }, 
-    { id: 2, content: './Mbong-Art-Portfolio/Animations/Runaway2.mp4', audio: false },
-    { id: 2, content: './Mbong-Art-Portfolio/Animations/OragamiLady.mp4', audio: true },
-    { id: 3, content: './Mbong-Art-Portfolio/Animations/Squabble.mp4', audio: false },
-    { id: 4, content: './Mbong-Art-Portfolio/Animations/JumpOver.mp4', audio: false },
-    { id: 5, content: './Mbong-Art-Portfolio/Animations/Flip.mp4', audio: false },
-    { id: 7, content: './Mbong-Art-Portfolio/Animations/RunningMan.mp4', audio: false },
-    { id: 6, content: './Mbong-Art-Portfolio/Animations/BackpackLady.mp4', audio: false },
-    { id: 8, content: './Mbong-Art-Portfolio/Animations/Yourmom.mp4', audio: true },
-    { id: 9, content: './Mbong-Art-Portfolio/Animations/PunchingBagCut.mp4', audio: false },
-    { id: 10, content: './Mbong-Art-Portfolio/Animations/Quoi.mp4', audio: false },
+    { id: 0, content: './Animations/HallwayRun.mp4', audio: false}, 
+    { id: 1, content: './Animations/RunawayShot.mp4', audio: false }, 
+    { id: 2, content: './Animations/Runaway2.mp4', audio: false },
+    { id: 2, content: './Animations/OragamiLady.mp4', audio: true },
+    { id: 3, content: './Animations/Squabble.mp4', audio: false },
+    { id: 4, content: './Animations/JumpOver.mp4', audio: false },
+    { id: 5, content: './Animations/Flip.mp4', audio: false },
+    { id: 7, content: './Animations/RunningMan.mp4', audio: false },
+    { id: 6, content: './Animations/BackpackLady.mp4', audio: false },
+    { id: 8, content: './Animations/Yourmom.mp4', audio: true },
+    { id: 9, content: './Animations/PunchingBagCut.mp4', audio: false },
+    { id: 10, content: './Animations/Quoi.mp4', audio: false },
   ]
   const [mutedVideos, setMutedVideos] = useState(() =>
     Object.fromEntries(animation_clips.map(v => [v.id, true]))
@@ -53,7 +53,7 @@ function App() {
     <div className="Home">
       <Navbar />
       <div className="Hero" id="Hero">
-        <video src={'./Mbong-Art-Portfolio/Animations/Flux_Intro.mp4'}muted autoPlay></video>
+        <video src={'./Animations/Flux_Intro.mp4'}muted autoPlay></video>
       </div>
       <header className="Section-Header" id="Animations">
         Animation Gallery
@@ -73,7 +73,7 @@ function App() {
         <header className="Section-Header" id="Animations">
           Demo Reel
         </header>
-        <video controls={true} src={'./Mbong-Art-Portfolio/Animations/Demo_Reel.mp4'}></video>
+        <video controls={true} src={'./Animations/Demo_Reel.mp4'}></video>
       </div>
       <header className="Section-Header" id="Illustrations">
         Illustrations
