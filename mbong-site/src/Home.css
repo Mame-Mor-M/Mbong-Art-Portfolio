@@ -10,14 +10,19 @@
   margin-top: 2%;
 }
 
-.Section-Desc{
+.Section-Desc {
   font-size: calc(5px + 2vmin);
   margin-top: -0.5vh
 }
+
 .Hero {
   text-align: center;
   background-color: rgb(28, 27, 27);
   min-height: 100vh;
+}
+
+.Hero video {
+  max-width: 100%;
 }
 
 .Hero-header {
@@ -34,17 +39,77 @@
   color: #61dafb;
 }
 
-.Navbar {
-  text-align: center
+.Navbar { /* Need to fix, still not centered for some reason (am I stupid?)*/
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+  background: #8C2504;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: opacity 1s ease, transform 1s ease;
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.Navbar-left {
-  text-align: left;
+.Navbar.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
-.Navbar-right {
-  text-align: right;
+.Navbar.hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
 }
+
+.Navbar:hover {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto;
+}
+
+.Navbar-Left button,
+.Navbar-Right button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-right: rem;
+}
+
+.Navbar-Left {
+  margin-right: -7.5rem;
+}
+
+.Navbar-Right {
+  margin-right: 2rem;
+}
+
+.Navbar-Center h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.Navbar-Center p {
+  margin-top: -1rem;
+  font-size: 1rem;
+  font-weight:500;
+  text-align: center;
+}
+
+.Navbar-Right a,
+.Navbar-Right button {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  color: inherit;
+}
+
 .Animations {
   text-align: center;
   background-color: rgb(28, 27, 27);
@@ -57,30 +122,31 @@
   min-height: 600vh;
   max-width: 100%
 }
-/* Masonry layout for the illustrations section*/
-.Illustrations-Grid{ 
+
+.Illustrations-Grid {
   column-gap: 1em;
   column-width: 250px;
- 
+
 }
 
 .Illustrations-Item {
   break-inside: avoid;
   margin-bottom: 1em;
   box-sizing: border-box;
-  
+
 }
 
-.Illustrations-Item img{
-  width:auto;
-  height:auto;
+.Illustrations-Item img {
+  width: auto;
+  height: auto;
   cursor: pointer;
   max-width: 600px;
 }
+
 .Illustrations-Item.wide {
   column-span: all;
   width: 100%;
-  
+
 }
 
 .Illustrations-Item.wide img {
@@ -88,8 +154,9 @@
   max-width: 1450px;
   cursor: pointer;
 }
-@media (min-width: 576px){
-  .Illustrations-Grid{
+
+@media (min-width: 576px) {
+  .Illustrations-Grid {
     column-count: 1
   }
 }
