@@ -124,6 +124,10 @@
   min-height: 100vh;
 }
 
+.Animations video {
+  width: 95%;
+}
+
 .Illustrations {
   text-align: center;
   background-color: #8C2504;

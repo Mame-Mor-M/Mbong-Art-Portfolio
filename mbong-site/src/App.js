@@ -38,11 +38,7 @@ function App() {
         <p className='Section-Desc'>Where I put my animations (make read better)</p>
       </header>
       <div className="Animations">
-        <header className="Hero-header">
-          <p>
-            EWAODAWOIDHOADHAWODA
-          </p>
-        </header>
+          <video src={'/Animations/Demo_Reel.mp4'}muted autoPlay loop></video>
       </div>
       <header className="Section-Header" id="Illustrations">
         Illustrations
