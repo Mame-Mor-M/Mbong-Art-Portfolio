@@ -4,12 +4,16 @@ import './Home.css';
 
 function App() {
   const images = [
-    {id: 1, content:'/Illustrations/Picture1.png', height:800, wide: false, vOffset: 50, hOffset: 0},
-    { id: 2, content: '/Illustrations/Picture2.png', height: 800, wide: false, vOffset: 100, hOffset: 0 },
+    {id: 1, content:'/Illustrations/Picture1.png', height:800, wide: false, vOffset: 50, hOffset: 50},
+    { id: 2, content: '/Illustrations/Picture2.png', height: 800, wide: false, vOffset: 100, hOffset: -50 },
     { id: 5, content: '/Illustrations/Picture5.png', height: 750, wide: true, vOffset: 150, hOffset: 0 },
-    { id: 3, content: '/Illustrations/Picture3.png', height: 800, wide: false, vOffset: 200, hOffset: 0 },
-    { id: 4, content: '/Illustrations/Picture4.png', height: 800, wide: false, vOffset: 230, hOffset: 0 },
-    { id: 6, content: '/Illustrations/Picture6.png', height: 0, wide: false, vOffset: 230, hOffset: -200 },
+    { id: 3, content: '/Illustrations/Picture3.png', height: 800, wide: false, vOffset: 200, hOffset: 50 },
+    { id: 4, content: '/Illustrations/Picture4.png', height: 800, wide: false, vOffset: 230, hOffset: -50 },
+    { id: 6, content: '/Illustrations/Picture6.png', height: 0, wide: false, vOffset: 230, hOffset: -400 },
+  ]
+
+  const animations = [
+    {id: 1, content: '/Animations/'}
   ]
   
   return (
@@ -100,10 +104,10 @@ const Navbar = () => {
       </div>
 
       <div className="Navbar-Right">
-        <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/mbong_mbong/" target="_blank" rel="noopener noreferrer">
           <FaInstagram />
         </a>
-        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/mbong-mbong-bb1190374/?originalSubdomain=ca" target="_blank" rel="noopener noreferrer">
           <FaLinkedin />
         </a>
         <button onClick={() => scrollToSection('Contact')}>
