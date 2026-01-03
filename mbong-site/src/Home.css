@@ -6,26 +6,28 @@
   text-align: center;
   font-weight: bold;
   color: #ffff8c;
-  font-size: calc(10px + 2vmin);
+  font-size: clamp(1.2rem, 4vw, 2.5rem);
   margin-bottom: 2%;
   margin-top: 2%;
 }
 
 .Section-Desc {
-  font-size: calc(5px + 2vmin);
-  margin-top: -0.5vh
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  margin-top: -0.5vh;
 }
 
 .Hero {
   text-align: center;
-  background-color: rgb(28, 27, 27);
-  height: 110vh;
+  background-color: #8C2504;
+  height: 100vh;
+  position: relative;
 }
 
 .Hero video {
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  transform: translateY(-90px);
+  transform: none;
 }
 
 .Hero-header {
@@ -34,29 +36,29 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: rgb(0, 0, 0);
+  font-size: clamp(1.2rem, 4vw, 2.5rem);
+  color: #8C2504;
 }
 
 .Hero-link {
   color: #61dafb;
 }
 
-.Navbar { /* Need to fix, still not centered for some reason (am I stupid?)*/
+.Navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1rem;
+  padding: 0.5rem 1rem;
   background: #8C2504;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 10000;
   transition: opacity 1s ease, transform 1s ease;
   opacity: 1;
   transform: translateY(0);
+  box-sizing: border-box;
 }
 
 .Navbar.visible {
@@ -78,58 +80,43 @@
 }
 
 .Navbar-Left button,
-.Navbar-Right button {
+.Navbar-Right button,
+.Navbar-Right a {
   background: none;
   border: none;
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;
-  margin-right: rem;
   color: #ffff8c;
-  
 }
+
 
 .Navbar-Left button:hover,
 .Navbar-Right button:hover,
-.Navbar-Right a:hover{
+.Navbar-Right a:hover {
   color: #d5d537;
 }
 
-.Navbar-Left {
-  margin-right: -5.5rem;
-}
-
+.Navbar-Left,
 .Navbar-Right {
-  margin-right: 2rem;
-  color: #ffff8c;
-}
-
-.Navbar-Center h1 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #ffff8c;
-  text-align: center;
-  justify-self: center;
-  transition: color 0.4s ease-in-out;
-}
-
-.Navbar-Center p {
-  margin-top: -1rem;
-  font-size: 1rem;
-  font-weight: 500;
-  text-align: center;
-  color: #ffff8c;
-  justify-self: center;
-  transition: color 0.4s ease-in-out;
+  margin: 0;
 }
 
 .Navbar-Center {
   transition: transform 0.4s ease-in-out;
   cursor: pointer;
+  text-align: center;
 }
 
 .Navbar-Center:hover {
   transform: scale(1.2);
+}
+
+.Navbar-Center h1,
+.Navbar-Center p {
+  margin: 0;
+  transition: color 0.4s ease-in-out;
+  color: #ffff8c;
 }
 
 .Navbar-Center:hover h1,
@@ -154,13 +141,14 @@
 .Animations video {
   width: 99%;
 }
-.Animations-Clip{
+
+.Animations-Clip {
   transform: scale(1);
   transition: transform 0.4s ease-in-out;
+  cursor: pointer;
 }
 
-/*Make cursor a pointer after when click behavior exists (not there yeT)*/
-.Animations-Clip:hover{
+.Animations-Clip:hover {
   transform: scale(1.05);
 }
 
@@ -176,21 +164,21 @@
   margin-bottom: 0.2rem;
 }
 
-.Animation-Volume
-
 .Illustrations {
   text-align: center;
   background-color: #8C2504;
-  min-height: 600vh;
+  min-height: 100vh;
   max-width: 100%;
   padding: 1%;
   margin-top: 4rem;
 }
 
 .Illustrations-Grid {
-  column-width: 250px;
-  column-gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
 }
+
 .Portrait-Section {
   margin-top: -20%;
 }
@@ -202,8 +190,8 @@
 .Illustrations-Item {
   break-inside: auto;
   box-sizing: border-box;
-
 }
+
 .Illustrations img {
   transform: scale(1);
   transition: transform 0.3s ease-in-out;
@@ -217,14 +205,13 @@
 }
 
 .Illustrations img:hover {
-  transform:scale(1.07);
+  transform: scale(1.07);
   z-index: 1000;
 }
 
 .Illustrations-Item.wide {
   column-span: all;
   width: 100%;
-
 }
 
 .Illustrations-Item.wide img {
@@ -232,26 +219,14 @@
   max-width: 1450px;
   cursor: pointer;
 }
-
-.Contact{
-  background-color: #8C2504;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  position: relative;
-  justify-self: center;
-}
-
 .contact-section {
-  min-height: 100vh;
   background-color: #8C2504;
-  /* tan background */
   display: flex;
   align-items: center;
   justify-content: center;
-  justify-self: center;
   padding: 2rem;
-  width:280%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .contact-card {
@@ -262,6 +237,7 @@
   max-width: 500px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   border: solid;
+  box-sizing: border-box;
 }
 
 .contact-card h1 {
@@ -321,14 +297,24 @@
   background-color: #d5d537;
   color: white;
 }
-@media (min-width: 576px) {
-  .Illustrations-Grid {
-    column-count: 1
-  }
-}
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
+  .Navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 0.5rem;
+  }
+
   .Illustrations-Grid {
-    column-count: 6
+    grid-template-columns: 1fr;
+  }
+
+  .Hero {
+    height: 100vh;
+  }
+
+  .contact-section {
+    width: 100%;
+    padding: 1rem;
   }
 }

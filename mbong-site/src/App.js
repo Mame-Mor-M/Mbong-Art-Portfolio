@@ -77,7 +77,7 @@ function App() {
         <p className='Section-Desc'>Character sheets & portraits</p>
       </header>
       <div className="Illustrations">
-        <ResponsiveMasonry className="Sheet-Section" columnsCountBreakPoints={{350: 1, 750: 2, 900: 4}}>
+        <ResponsiveMasonry className="Sheet-Section" columnsCountBreakPoints={{350: 1, 750: 2, 900: 4 }}>
         <Masonry columnsCount={4} gutter='15px'>
           {character_designs.map((image, i) => (
             <div>
@@ -140,13 +140,13 @@ const Navbar = () => {
       </div>
 
       <div className="Navbar-Right">
-        <a href="https://www.instagram.com/mbong_mbong/" target="_blank" rel="noopener noreferrer">
+        <a style={{ color: "#ffff8c"}} href="https://www.instagram.com/mbong_mbong/" target="_blank" rel="noopener noreferrer">
           <FaInstagram />
         </a>
-        <a href="https://www.linkedin.com/in/mbong-mbong-929a0b35a/" target="_blank" rel="noopener noreferrer">
+        <a style={{ color: "#ffff8c" }} href="https://www.linkedin.com/in/mbong-mbong-929a0b35a/" target="_blank" rel="noopener noreferrer">
           <FaLinkedin />
         </a>
-        <button onClick={() => scrollToSection('Contact')}>
+        <button style={{ color: "#ffff8c" }} onClick={() => scrollToSection('Contact')}>
           <FaEnvelope />
         </button>
       </div>
