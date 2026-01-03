@@ -50,7 +50,7 @@ function App() {
     <div className="Home">
       <Navbar />
       <div className="Hero" id="Hero">
-        <video src={'https://github.com/Mame-Mor-M/Mbong-Art-Portfolio/releases/download/Animation/Flux_Intro.mp4'}muted autoPlay loop={false} playsInline preload='auto' controls={false}></video>
+        <video src={'https://github.com/Mame-Mor-M/Mbong-Art-Portfolio/releases/download/Animation/Flux_Intro.mp4'}muted autoPlay playsInline preload='auto' controls={false}></video>
       </div>
       <header className="Section-Header" id="Animations">
         Animation Gallery
@@ -140,13 +140,13 @@ const Navbar = () => {
       </div>
 
       <div className="Navbar-Right">
-        <a style={{ color: "#ffff8c"}} href="https://www.instagram.com/mbong_mbong/" target="_blank" rel="noopener noreferrer">
+        <a style={{ }} href="https://www.instagram.com/mbong_mbong/" target="_blank" rel="noopener noreferrer">
           <FaInstagram />
         </a>
-        <a style={{ color: "#ffff8c" }} href="https://www.linkedin.com/in/mbong-mbong-929a0b35a/" target="_blank" rel="noopener noreferrer">
+        <a style={{}} href="https://www.linkedin.com/in/mbong-mbong-929a0b35a/" target="_blank" rel="noopener noreferrer">
           <FaLinkedin />
         </a>
-        <button style={{ color: "#ffff8c" }} onClick={() => scrollToSection('Contact')}>
+        <button style={{ }} onClick={() => scrollToSection('Contact')}>
           <FaEnvelope />
         </button>
       </div>
