@@ -1,7 +1,6 @@
 import { FaInstagram, FaLinkedin, FaEnvelope, FaVolumeMute, FaVolumeUp} from 'react-icons/fa';
 import { useState, useEffect, useRef } from 'react';
 import Masonry, {ResponsiveMasonry} from 'react-responsive-masonry';
-import backpack from './Animations/BackpackLady.mp4';
 import emailjs from "@emailjs/browser";
 import './Home.css';
 
@@ -34,7 +33,7 @@ function App() {
     { id: 4, content: './Animations/JumpOver.mp4', audio: false },
     { id: 5, content: './Animations/Flip.mp4', audio: false },
     { id: 7, content: './Animations/RunningMan.mp4', audio: false },
-    { id: 6, content: backpack, audio: false },
+    { id: 6, content: './Animations/BackpackLady.mp4', audio: false },
     { id: 8, content: './Animations/Yourmom.mp4', audio: true },
     { id: 9, content: './Animations/PunchingBagCut.mp4', audio: false },
     { id: 10, content: './Animations/Quoi.mp4', audio: false },
