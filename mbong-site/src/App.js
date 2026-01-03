@@ -13,9 +13,6 @@ function App() {
     { content: './Illustrations/HunterSheet.png', height: 800, wide: false, vOffset: 0, hOffset: 145, width: 400 },
     { content: './Illustrations/Hunter2.png', height: 800, wide: false, vOffset: 0, hOffset: 65, width: 400 },
     { content: './Illustrations/FightLady.png', height: 0, wide: false, vOffset: -700, hOffset: 1065, width: 400 },
-
-  ]
-  const portraits = [
     { content: './Illustrations/Picture2.png', height: 800, wide: false, vOffset: 0, hOffset: 25, width: 500 },
     { content: './Illustrations/Picture1.png', height: 800, wide: false, vOffset: 0, hOffset: 42, width: 600 },
     { content: './Illustrations/Picture3.png', height: 800, wide: false, vOffset: 0, hOffset: 165, width: 300 },
@@ -25,18 +22,18 @@ function App() {
   ]
 
   const animation_clips = [
-    { id: 0, content: './Animations/HallwayRun.mp4', audio: false}, 
-    { id: 1, content: './Animations/RunawayShot.mp4', audio: false }, 
-    { id: 2, content: './Animations/Runaway2.mp4', audio: false },
-    { id: 2, content: './Animations/OragamiLady.mp4', audio: true },
-    { id: 3, content: './Animations/Squabble.mp4', audio: false },
-    { id: 4, content: './Animations/JumpOver.mp4', audio: false },
-    { id: 5, content: './Animations/Flip.mp4', audio: false },
-    { id: 7, content: './Animations/RunningMan.mp4', audio: false },
-    { id: 6, content: './Animations/BackpackLady.mp4', audio: false },
-    { id: 8, content: './Animations/Yourmom.mp4', audio: true },
-    { id: 9, content: './Animations/PunchingBagCut.mp4', audio: false },
-    { id: 10, content: './Animations/Quoi.mp4', audio: false },
+    { id: 0, content: 'https://github.com/Mame-Mor-M/Mbong-Art-Portfolio/releases/download/Animation/HallwayRun.mp4', audio: false}, 
+    { id: 1, content: 'https://github.com/Mame-Mor-M/Mbong-Art-Portfolio/releases/download/Animation/RunawayShot.mp4', audio: false }, 
+    { id: 2, content: 'https://github.com/Mame-Mor-M/Mbong-Art-Portfolio/releases/download/Animation/Runaway2.mp4', audio: false },
+    { id: 2, content: 'https://github.com/Mame-Mor-M/Mbong-Art-Portfolio/releases/download/Animation/OragamiLady.mp4', audio: true },
+    { id: 3, content: 'https://github.com/Mame-Mor-M/Mbong-Art-Portfolio/releases/download/Animation/Squabble.mp4', audio: false },
+    { id: 4, content: 'https://github.com/Mame-Mor-M/Mbong-Art-Portfolio/releases/download/Animation/JumpOver.mp4', audio: false },
+    { id: 5, content: 'https://github.com/Mame-Mor-M/Mbong-Art-Portfolio/releases/download/Animation/Flip.mp4', audio: false },
+    { id: 7, content: 'https://github.com/Mame-Mor-M/Mbong-Art-Portfolio/releases/download/Animation/RunningMan.mp4', audio: false },
+    { id: 6, content: 'https://github.com/Mame-Mor-M/Mbong-Art-Portfolio/releases/download/Animation/BackpackLady.mp4', audio: false },
+    { id: 8, content: 'https://github.com/Mame-Mor-M/Mbong-Art-Portfolio/releases/download/Animation/Yourmom.mp4', audio: true },
+    { id: 9, content: 'https://github.com/Mame-Mor-M/Mbong-Art-Portfolio/releases/download/Animation/PunchingBagCut.mp4', audio: false },
+    { id: 10, content: 'https://github.com/Mame-Mor-M/Mbong-Art-Portfolio/releases/download/Animation/Quoi.mp4', audio: false },
   ]
   const [mutedVideos, setMutedVideos] = useState(() =>
     Object.fromEntries(animation_clips.map(v => [v.id, true]))
@@ -53,7 +50,7 @@ function App() {
     <div className="Home">
       <Navbar />
       <div className="Hero" id="Hero">
-        <video src={'./Animations/Flux_Intro.mp4'}muted autoPlay></video>
+        <video src={'https://github.com/Mame-Mor-M/Mbong-Art-Portfolio/releases/download/Animation/Flux_Intro.mp4'}muted autoPlay loop={false} playsInline preload='auto' controls={false}></video>
       </div>
       <header className="Section-Header" id="Animations">
         Animation Gallery
@@ -73,30 +70,21 @@ function App() {
         <header className="Section-Header" id="Animations">
           Demo Reel
         </header>
-        <video controls={true} src={'./Animations/Demo_Reel.mp4'}></video>
+        <video controls={true} src={'https://github.com/Mame-Mor-M/Mbong-Art-Portfolio/releases/download/Animation/Demo_Reel.mp4'}></video>
       </div>
       <header className="Section-Header" id="Illustrations">
         Illustrations
         <p className='Section-Desc'>Character sheets & portraits</p>
       </header>
       <div className="Illustrations">
-        <ResponsiveMasonry className="Sheet-Section" columnsCountBreakPoints={{350: 1, 750: 2, 900: 3}}>
-        <Masonry columnsCount={3} gutter='15px'>
+        <ResponsiveMasonry className="Sheet-Section" columnsCountBreakPoints={{350: 1, 750: 2, 900: 4}}>
+        <Masonry columnsCount={4} gutter='15px'>
           {character_designs.map((image, i) => (
             <div>
-            <img key={i} src={image.content} style={{width: `${image.width}px`, position: `relative`, left: `${image.hOffset}px`, top: `${image.vOffset}px`}}/>
+              <img key={i} src={image.content} style={{ width: `100%`}}/>
             </div>
           ))}
         </Masonry>
-        </ResponsiveMasonry>
-        <ResponsiveMasonry className="Portrait-Section" columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
-          <Masonry columnsCount={3} gutter='15px'>
-            {portraits.map((image, i) => (
-              <div>
-                <img key={i} src={image.content} style={{ width: `${image.width}px`, position: `relative`, left: `${image.hOffset}px`, top: `${image.vOffset}px` }} />
-              </div>
-            ))}
-          </Masonry>
         </ResponsiveMasonry>
       </div>
       <div id="Contact" className="Contact">
@@ -146,7 +134,7 @@ const Navbar = () => {
         <button onClick={() => scrollToSection('Animations')}>Animations</button>
       </div>
 
-      <div className="Navbar-Center">
+      <div className="Navbar-Center" onClick={() => scrollToSection('Hero')}>
         <h1>Mbong Mbong</h1>
         <p>Animator & Digital Artist</p>
       </div>
