@@ -147,7 +147,6 @@ margin-right: -2.5rem;
 .Animations-Clip {
   transform: scale(1);
   transition: transform 0.4s ease-in-out;
-  cursor: pointer;
 }
 
 .Animations-Clip:hover {
